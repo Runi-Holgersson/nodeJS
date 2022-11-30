@@ -1,0 +1,22 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "Node JS Global Program training",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Runi-Holgersson/nodeJS.git"
+  },
+  "author": "Nina Rudenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Runi-Holgersson/nodeJS/issues"
+  },
+  "homepage": "https://github.com/Runi-Holgersson/nodeJS#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
