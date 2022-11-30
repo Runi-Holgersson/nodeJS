@@ -2,9 +2,9 @@
   "name": "nodejs",
   "version": "1.0.0",
   "description": "Node JS Global Program training",
-  "main": "index.js",
+  "main": "task1_1.js",
   "scripts": {
-    "test": "npm run test"
+    "task1": "nodemon task1_1.js"
   },
   "repository": {
     "type": "git",
