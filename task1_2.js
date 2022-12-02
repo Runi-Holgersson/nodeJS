@@ -2,6 +2,8 @@ const fs = require('fs');
 const csv = require('csvtojson');
 const { pipeline } = require('node:stream')
 
+// first way with output in nodejs-hw1-ex1.txt
+
 const filePath = './assets/nodejs-hw1-ex1.csv';
 const readStream = fs.createReadStream(filePath, {
     highWaterMark: 15
@@ -11,7 +13,7 @@ readStream.pipe(csv()).pipe(writeStream).on("error", (err) => {
     console.log(err);
 });
 
-// second method
+// second way with output in nodejs-hw1-ex2.txt
 
 pipeline(
     fs.createReadStream('./assets/nodejs-hw1-ex1.csv', {
