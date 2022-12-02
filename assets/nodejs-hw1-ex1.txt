@@ -6,3 +6,4 @@
 {"Book":"Pride and Prejudice","Author":"Jane Austen","Amount":"8","Price":"25.12"}
 {"Book":"Jane Eyre","Author":"Sharlotte Bronte","Amount":"3","Price":"18.11"}
 {"Book":"Perseption","Author":"Jane Austen","Amount":"","Price":""}
+{"Book":"Sense and Sensibility","Author":"Jane Austen","Amount":"4","Price":"24.5"}

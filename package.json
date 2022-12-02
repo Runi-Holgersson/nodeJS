@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Runi-Holgersson/nodeJS#readme",
   "devDependencies": {
+    "@babel/preset-env": "^7.20.2",
     "nodemon": "^2.0.20"
   },
   "dependencies": {
