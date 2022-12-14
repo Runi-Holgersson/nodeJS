@@ -4,6 +4,6 @@
 {"Book":"Influence: The Psychology of Persuasion","Author":"Robert B. Cialdini","Price":12.99}
 {"Book":"The ONE Thing","Author":"Gary Keller","Price":11.18}
 {"Book":"Pride and Prejudice","Author":"Jane Austen","Price":25.12}
-{"Book":"Jane Eyre","Author":"Sharlotte Bronte","Price":18.11}
-{"Book":"Perseption","Author":"Jane Austen"}
+{"Book":"Jane Eyre","Author":"Charlotte Bronte","Price":18.11}
+{"Book":"Perception","Author":"Jane Austen"}
 {"Book":"Sense and Sensibility","Author":"Jane Austen","Price":24.5}

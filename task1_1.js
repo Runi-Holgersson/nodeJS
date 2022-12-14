@@ -1,3 +1,5 @@
+import process from 'node:process'
+
 const revertString = (data) => {
     return data.split("").reverse().join("");
 }

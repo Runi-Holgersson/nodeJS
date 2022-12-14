@@ -1,6 +1,6 @@
-const fs = require('fs');
-const csv = require('csvtojson');
-const { pipeline } = require('node:stream')
+import fs from 'fs';
+import { pipeline } from 'node:stream';
+import csv from 'csvtojson';
 
 // first way with output in nodejs-hw1-ex1.txt
 
