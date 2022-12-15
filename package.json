@@ -2,10 +2,10 @@
   "name": "nodejs",
   "version": "1.0.0",
   "description": "Node JS Global Program training",
-  "main": "task1_1.js",
+  "main": "module1/task1.js",
   "scripts": {
-    "task1": "nodemon babel-node task1_1.js",
-    "task2": "nodemon babel-node task1_2.js"
+    "task1": "nodemon babel-node module1/task1.js",
+    "task2": "nodemon babel-node module1/task2.js"
   },
   "repository": {
     "type": "git",
