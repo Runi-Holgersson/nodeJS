@@ -1,6 +1,6 @@
 import process from 'node:process'
 
-const revertString = (data) => {
+const revertString = (data: string) => {
     return data.split("").reverse().join("");
 }
 
