@@ -1,0 +1,84 @@
+[
+  {
+    "id":"1324",
+    "login":"first",
+    "password":"firstpass",
+    "age": 12,
+    "isDeleted": false
+  },
+  {
+    "id":"5678",
+    "login":"second",
+    "password":"secondpass",
+    "age": 56,
+    "isDeleted": false
+  },
+  {
+    "id":"91011",
+    "login":"third",
+    "password":"thirdpass",
+    "age": 34,
+    "isDeleted": false
+  },
+  {
+    "id":"1324",
+    "login":"first",
+    "password":"firstpass",
+    "age": 12,
+    "isDeleted": false
+  },
+  {
+    "id":"5678",
+    "login":"second",
+    "password":"secondpass",
+    "age": 56,
+    "isDeleted": false
+  },
+  {
+    "id":"91011",
+    "login":"third",
+    "password":"thirdpass",
+    "age": 34,
+    "isDeleted": false
+  },{
+  "id":"1324",
+  "login":"first",
+  "password":"firstpass",
+  "age": 12,
+  "isDeleted": false
+},
+  {
+    "id":"5678",
+    "login":"second",
+    "password":"secondpass",
+    "age": 6,
+    "isDeleted": false
+  },
+  {
+    "id":"91011",
+    "login":"third",
+    "password":"thirdpass",
+    "age": 34,
+    "isDeleted": false
+  },{
+  "id":"1324",
+  "login":"first",
+  "password":"firstpass",
+  "age": 2,
+  "isDeleted": false
+},
+  {
+    "id":"5678",
+    "login":"second",
+    "password":"secondpass",
+    "age": 23,
+    "isDeleted": false
+  },
+  {
+    "id":"91011",
+    "login":"third",
+    "password":"thirdpass",
+    "age": 37,
+    "isDeleted": false
+  }
+]
