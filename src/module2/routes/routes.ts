@@ -58,6 +58,7 @@ router.delete('/users/:id', async (req, res, next) => {
     next();
 })
 
+/* Create user */
 router.post('/users', async (req, res, next) => {
     await createUser(req.body)
         .then(users => {
@@ -68,7 +69,9 @@ router.post('/users', async (req, res, next) => {
         })
     next();
 })
-router.get('/', async (req, res) => {
+
+/* Search users list by queries */
+router.get('/search', async (req, res) => {
     const substring: any = req.query.substring;
     const limit: any = req.query.limit;
     await getAutoSuggestUsers(substring, limit)

@@ -78,9 +78,7 @@ export function createUser(user: User): Promise<User[]> {
 
 export function getAutoSuggestUsers(loginSubstring: string, limit: number = 3) {
     return new Promise<User[]>((resolve, reject) => {
-        const suggestedUsers = users.filter((user) => {
-            user.login.includes(loginSubstring)
-        });
+        const suggestedUsers = users.filter(user => user.login.includes(loginSubstring));
         if (suggestedUsers.length > limit) {
             resolve(suggestedUsers.slice(0, limit-1));
         } else {
