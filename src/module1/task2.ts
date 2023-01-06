@@ -21,7 +21,7 @@ pipeline(
     }),
     csv({ ignoreEmpty: true }).subscribe((data) => {
         delete data['Amount'];
-        if ( !!(data['Price']) ) {
+        if ( data['Price'] ) {
             data['Price'] = Number(data['Price']);
         }
     }),

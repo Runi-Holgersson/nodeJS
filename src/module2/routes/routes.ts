@@ -3,9 +3,6 @@ import {getUsers, getUser, updateUser, deleteUser, createUser, getAutoSuggestUse
 import {User} from "../models/user";
 //import {schema} from "../db/validation";
 import Joi from "joi";
-import url, {URL} from "url";
-import fs from "fs";
-import users from "../db/users.json";
 
 const schema = Joi.object(
     {
@@ -18,9 +15,7 @@ const schema = Joi.object(
 )
 
 export const router = express.Router();
-const testUpdateData: Partial<User> = { password: 'testPassword', age: 111 };
-const testCreateUser: User = { id: "666", login: 'brand new user', password: 'testPassword', age: 111, isDeleted: false };
-const filepath = '../users.json';
+
 /* All users */
 router.get('/users', async (req, res) => {
     try {
@@ -43,7 +38,7 @@ router.get('/users/:id', async (req, res) => {
 })
 
 /* Update user by id */
-router.put('/users/:id', async (req, res, next) => {
+router.put('/users/:id', async (req, res) => {
     try {
         const result = schema.validate(req.body);
         if (!result.error) {
@@ -59,7 +54,7 @@ router.put('/users/:id', async (req, res, next) => {
 })
 
 /* Soft delete user by id */
-router.delete('/users/:id', async (req, res, next) => {
+router.delete('/users/:id', async (req, res) => {
     try {
         const id: any = req.params.id;
         const users = await deleteUser(id);
@@ -70,7 +65,7 @@ router.delete('/users/:id', async (req, res, next) => {
 })
 
 /* Create user */
-router.post('/users', async (req, res, next) => {
+router.post('/users', async (req, res) => {
     try {
         const result = schema.validate(req.body);
         if (!result.error) {

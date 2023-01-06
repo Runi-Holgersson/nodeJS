@@ -1,7 +1,6 @@
 import users from '../db/users.json';
 import {User} from '../models/user'
-import fs, {writeFileSync} from "fs";
-import path from 'path';
+import fs from "fs";
 
 //const filepath = path.join(process.cwd(), 'src', 'module2', 'db', 'users.json');
 const filepath = require.resolve('../db/users.json');
@@ -49,7 +48,7 @@ export async function createUser(user: User): Promise <User[]> {
     return users;
 }
 //remove Promises
-export async function getAutoSuggestUsers(loginSubstring: string, limit: number = 3) {
+export async function getAutoSuggestUsers(loginSubstring: string, limit = 3) {
     const suggestedUsers =await users.filter(user => user.login.includes(loginSubstring));
     if (suggestedUsers.length > limit) {
         return (suggestedUsers.slice(0, limit-1));
