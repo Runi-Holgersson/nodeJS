@@ -4,6 +4,7 @@ import {User} from "../models/user";
 //import {schema} from "../db/validation";
 import Joi from "joi";
 
+//add validation schema
 const schema = Joi.object(
     {
         id: Joi.string().required(),
