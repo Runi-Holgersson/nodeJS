@@ -5,7 +5,7 @@ import bodyParser from "body-parser";
 import {router} from './routes/routes'
 
 const server = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8000;
 server.use(helmet());
 server.use(morgan('dev'));
 server.use(bodyParser.json());

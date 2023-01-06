@@ -1,90 +1,61 @@
 import users from '../db/users.json';
 import {User} from '../models/user'
 import fs, {writeFileSync} from "fs";
+import path from 'path';
 
-const filepath = '../users.json';
+//const filepath = path.join(process.cwd(), 'src', 'module2', 'db', 'users.json');
+const filepath = require.resolve('../db/users.json');
 
-export function findUser(users: User[], id: string): Promise <User> {
-    return new Promise((resolve, reject) => {
+export function findUser(users: User[], id: string): User {
         const user = users.find(r => r.id == id)
         if (!user) {
-            reject({
-                message: 'no user with this ID exists',
-                status: 404
-            })
+            throw new Error ('no user with this ID exists');
         } else {
-            resolve(user)
+            return (user);
         }
-    })
 }
 
-function writeJSONFile(filename: string, content: User[]) {
-    fs.writeFileSync(filename, JSON.stringify(content), 'utf8')
+export async function getUsers(): Promise<User[]>  {
+    if (users.length === 0) {
+        throw new Error('no users available')
+    } return users;
 }
 
-export function getUsers(): Promise<User[]> {
-    return new Promise((resolve, reject) => {
-        if (users.length === 0) {
-            reject({
-                message: 'no users available',
-                status: 202
-            })
-        }
-        resolve(users)
-    })
+export async function getUser(id: any): Promise<User> {
+    return findUser(users, id);
 }
 
-export function getUser(id: any): Promise<User> {
-    return new Promise((resolve, reject) => {
-        findUser(users, id)
-            .then(user => resolve(user))
-            .catch(err => reject(err))
-    })
+export async function updateUser(id: any, newData: Partial<User>): Promise<User[]> {
+    const user = await findUser(users, id);
+    const index = users.findIndex(data => data.id == user.id);
+    users[index] = {...user, ...newData};
+    await fs.promises.writeFile(filepath, JSON.stringify(users))
+    return users;
 }
 
-export function updateUser(id: any, newData: Partial<User>): Promise<User[]> {
-    return new Promise((resolve, reject) => {
-        findUser(users, id)
-            .then(user => {
-                const index = users.findIndex(data => data.id == user.id);
-                users[index] = {...user, ...newData};
-                fs.writeFileSync(filepath, JSON.stringify(users));
-                resolve(users);
-            })
-            .catch(err => reject(err));
-    })
+export async function deleteUser(id: any): Promise<User[]> {
+    const user = await findUser(users, id);
+    const index = users.findIndex(data => data.id == user.id);
+    users[index].isDeleted = true;
+    await fs.promises.writeFile(filepath, JSON.stringify(users));
+    return users;
 }
 
-export function deleteUser(id: any): Promise<User[]> {
-    return new Promise((resolve, reject) => {
-        findUser(users, id)
-            .then(user => {
-                const index = users.findIndex(data => data.id == user.id);
-                users[index].isDeleted = true;
-                fs.writeFileSync(filepath, JSON.stringify(users), 'utf8');
-                resolve((users));
-            })
-            .catch(err => reject(err));
-    })
+export async function createUser(user: User): Promise <User[]> {
+    users.push(user);
+    console.log(users);
+    await fs.promises.writeFile(filepath, JSON.stringify(users));
+    // fs.writeFileSync(filepath, JSON.stringify(users), 'utf8');
+    return users;
 }
-
-export function createUser(user: User): Promise<User[]> {
-    return new Promise<User[]>((resolve, reject) => {
-        users.push(user);
-        writeFileSync(filepath, JSON.stringify(users), 'utf8');
-        resolve(users);
-    })
-}
-
-export function getAutoSuggestUsers(loginSubstring: string, limit: number = 3) {
-    return new Promise<User[]>((resolve, reject) => {
-        const suggestedUsers = users.filter(user => user.login.includes(loginSubstring));
-        if (suggestedUsers.length > limit) {
-            resolve(suggestedUsers.slice(0, limit-1));
-        } else {
-            resolve(suggestedUsers);
-        }
-    })
+//remove Promises
+export async function getAutoSuggestUsers(loginSubstring: string, limit: number = 3) {
+    const suggestedUsers =await users.filter(user => user.login.includes(loginSubstring));
+    if (suggestedUsers.length > limit) {
+        return (suggestedUsers.slice(0, limit-1));
+    } else {
+        return suggestedUsers;
+    }
 }
 
 

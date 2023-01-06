@@ -1,6 +1,6 @@
 import Joi from "joi";
 
-const schema = Joi.object(
+export const schema = Joi.object(
     {
         id: Joi.string().required(),
         login: Joi.string().required(),
