@@ -1,6 +1,9 @@
 import users from '../db/users.json';
 import {User} from '../types/user';
 import fs from "fs";
+import {pool} from "../db/queries";
+import {Request, Response} from "express";
+import {QueryResult} from "pg";
 
 //const filepath = path.join(process.cwd(), 'src', 'module2', 'db', 'users.json');
 const filepath = require.resolve('../db/users.json');
@@ -14,15 +17,34 @@ export function findUser(users: User[], id: string): User {
         }
 }
 
-export async function getUsers(): Promise<User[]>  {
+
+export async function getUsers (req: Request, res: Response){
+    try {
+        const users = await pool.query('SELECT * FROM public.users ORDER BY id ASC');
+        res.status(200).json(users.rows);
+    } catch(err) {
+        res.status(500).json({ message: err });
+    }
+}
+
+export async function getUser (req: Request, res: Response) {
+    try {
+        const id = parseInt(req.params.id);
+        const user = await pool.query('SELECT * FROM users WHERE id = $1', [id]);
+        res.status(200).json(user.rows);
+    } catch(err) {
+        res.status(500).json({ message: err });
+    }
+}
+/*export async function getUsers(): Promise<User[]>  {
     if (users.length === 0) {
         throw new Error('no users available')
     } return users;
-}
+}*/
 
-export async function getUser(id: any): Promise<User> {
+/*export async function getUser(id: any): Promise<User> {
     return findUser(users, id);
-}
+}*/
 
 export async function updateUser(id: any, newData: Partial<User>): Promise<User[]> {
     const user = await findUser(users, id);
