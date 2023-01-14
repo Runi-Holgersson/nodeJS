@@ -25,20 +25,7 @@ router.get('/users', getUsers);
 router.get('/users/:id', getUser);
 
 /* Update user by id */
-router.put('/users/:id', async (req, res) => {
-    try {
-        const result = schema.validate(req.body);
-        if (!result.error) {
-            const id: any = req.params.id;
-            const users = await updateUser(id, req.body)
-            res.json(users);
-        } else {
-            res.status(400).json({ message: result.error.message});
-        }
-    } catch (err) {
-        res.status(500).json({ message: err});
-    }
-})
+router.put('/users/:id', updateUser);
 
 /* Soft delete user by id */
 router.delete('/users/:id', async (req, res) => {
@@ -52,19 +39,7 @@ router.delete('/users/:id', async (req, res) => {
 })
 
 /* Create user */
-router.post('/users', async (req, res) => {
-    try {
-        const result = schema.validate(req.body);
-        if (!result.error) {
-            const users: User[] =  await createUser(req.body);
-            res.json(users);
-        } else {
-            res.status(400).json({ message: result.error.message});
-        }
-    } catch(err) {
-        res.status(500).json({ message: err });
-    }
-})
+router.post('/users', createUser);
 
 /* Search users list by queries */
 router.get('/search', async (req, res) => {
