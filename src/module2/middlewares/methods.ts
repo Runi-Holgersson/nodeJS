@@ -2,8 +2,8 @@ import users from '../db/users.json';
 import {User} from '../models/user'
 import fs from "fs";
 
-//const filepath = path.join(process.cwd(), 'src', 'module2', 'db', 'users.json');
-const filepath = require.resolve('../db/users.json');
+//const filepath = path.join(process.cwd(), 'src', 'module2', 'models', 'users.json');
+const filepath = require.resolve('../models/users.json');
 
 export function findUser(users: User[], id: string): User {
         const user = users.find(r => r.id == id)

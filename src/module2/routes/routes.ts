@@ -1,7 +1,7 @@
 import express from 'express';
 import {getUsers, getUser, updateUser, deleteUser, createUser, getAutoSuggestUsers} from '../middlewares/methods';
 import {User} from "../models/user";
-//import {schema} from "../db/validation";
+//import {schema} from "../models/validation";
 import Joi from "joi";
 
 //add validation schema

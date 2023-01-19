@@ -2,7 +2,7 @@ import express from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import bodyParser from "body-parser";
-import {router} from './routes/routes'
+import {router} from './routers/controllers'
 
 const server = express();
 const port = process.env.PORT || 8000;
