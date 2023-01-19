@@ -1,6 +1,5 @@
 import {pool} from "../models/db";
 import {Request, Response} from "express";
-import Joi from "joi";
 import {
     GET_USERS,
     GET_USER,
@@ -9,16 +8,6 @@ import {
     CREATE_USER,
     DELETE_USER
 } from "../models/queries";
-
-const schema = Joi.object(
-    {
-        id: Joi.string().required(),
-        login: Joi.string().required(),
-        password: Joi.string().regex(/^[a-zA-Z0-9]+$/).required(),
-        age: Joi.number().min(4).max(130).required(),
-        isDeleted: Joi.boolean()
-    }
-)
 
 export async function getUsers (req: Request, res: Response){
     try {
