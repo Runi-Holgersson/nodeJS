@@ -9,6 +9,7 @@
     "module2": "nodemon src/module2/server.ts",
     "module3": "nodemon src/module3/app.ts",
     "module3_1": "nodemon src/module3_1/app.ts",
+    "module4": "nodemon src/module4/app.ts",
     "lint": "eslint src/**/*.ts",
     "format": "eslint src/**/*.ts --fix"
   },
