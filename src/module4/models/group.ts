@@ -2,13 +2,14 @@ import { Model, Sequelize, DataTypes } from 'sequelize';
 import { Permissions } from "../types/permissions";
 
 export default class Group extends Model {
-    public id?: string;
+    public group_id?: string;
     declare name?: string;
     public permissions?: Array<Permissions>
 }
+
 export const GroupMap = (sequelize: Sequelize) => {
     Group.init({
-        id: {
+        group_id: {
             type: DataTypes.STRING(100),
             primaryKey: true
         },
@@ -20,8 +21,8 @@ export const GroupMap = (sequelize: Sequelize) => {
         }
     }, {
         sequelize,
+        modelName: 'Group',
         tableName: 'groups'
     });
     Group.sync();
-    console.log(sequelize.models.User);
 }
