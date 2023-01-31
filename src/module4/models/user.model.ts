@@ -1,6 +1,7 @@
 import { Model, Sequelize, DataTypes } from 'sequelize';
+import GroupModel from "./group.model";
 
-export default class User extends Model {
+export default class UserModel extends Model {
     public id?: string;
     public login?: string;
     public password?: string;
@@ -9,7 +10,7 @@ export default class User extends Model {
 }
 
 export const UserMap = (sequelize: Sequelize) => {
-    User.init({
+    UserModel.init({
         id: {
             type: DataTypes.STRING(100),
             primaryKey: true
@@ -33,6 +34,12 @@ export const UserMap = (sequelize: Sequelize) => {
         tableName: 'users',
         timestamps: false
     });
+    UserModel.sync();
+    /*UserModel.belongsToMany(GroupModel, {
+        through: "user_group",
+        as: "users",
+        foreignKey: "group_id"
+    })*/
 }
 
 
