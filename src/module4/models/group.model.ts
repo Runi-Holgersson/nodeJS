@@ -1,11 +1,13 @@
-import { Model, Sequelize, DataTypes } from 'sequelize';
+import { Model, Sequelize, DataTypes, ForeignKey } from 'sequelize';
 import { Permissions } from "../types/permissions";
 import UserModel from "./user.model";
+import UserGroupModel from "./user-group.model";
 
 export default class GroupModel extends Model {
     public id?: string;
     declare name?: string;
-    public permissions?: Array<Permissions>
+    public permissions?: Array<Permissions>;
+    public user_id?: ForeignKey<string>;
 }
 
 export const GroupMap = (sequelize: Sequelize) => {
@@ -25,10 +27,10 @@ export const GroupMap = (sequelize: Sequelize) => {
         tableName: 'groups',
         timestamps: false
     });
-    GroupModel.sync();
-    /*GroupModel.belongsToMany(UserModel, {
+    GroupModel.belongsToMany(UserModel, {
         through: "user_group",
         as: "groups",
         foreignKey: "user_id"
-    })*/
+    });
+    GroupModel.sync();
 }

@@ -34,13 +34,12 @@ export const UserMap = (sequelize: Sequelize) => {
         tableName: 'users',
         timestamps: false
     });
-    UserModel.sync();
-    /*UserModel.belongsToMany(GroupModel, {
+    UserModel.belongsToMany(GroupModel, {
         through: "user_group",
         as: "users",
         foreignKey: "group_id"
-    })*/
+    });
+    UserModel.sync();
 }
-
 
 

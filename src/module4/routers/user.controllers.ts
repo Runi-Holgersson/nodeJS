@@ -40,4 +40,12 @@ usersRouter.post('/users', validateUser, async (req: Request, res: Response) => 
    }
 });
 
+usersRouter.put('/users/:id', validateUser, async (req: Request, res:Response) => {
+    try {
+
+    } catch (err) {
+        res.status(500).json({ message: err });
+    }
+})
+
 
