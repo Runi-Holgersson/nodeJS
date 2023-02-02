@@ -91,6 +91,7 @@ groupsRouter.post('/usergroups/:id', async (req: Request, res: Response) => {
         newGroup = result.dataValues as GroupModel;
         res.status(201).json({ group: newGroup });
     } catch(err) {
+        console.log(err);
         res.status(500).json({ message: err });
     }
 });
