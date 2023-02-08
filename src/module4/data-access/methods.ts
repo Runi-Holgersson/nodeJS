@@ -10,6 +10,7 @@ const t = async (sequelize:Sequelize) => {
 
 export async function addUsersToGroup(groupId: number, userIds: any[]) {
 try {
+    return sequelize.transaction(async function (transaction) {
         User.belongsToMany(Group, { through: UserGroup, onDelete: "cascade" });
         Group.belongsToMany(User, { through: UserGroup, onDelete: "cascade" });
         const group = await Group.findByPk(groupId);
@@ -23,9 +24,10 @@ try {
                     GroupId: groupId
                 });
             }
-            await UserGroup.bulkCreate(userGroup);
+            await UserGroup.bulkCreate(userGroup, {transaction});
             return Group.findByPk(groupId, {include: User});
-    }
+        }
+    })
 } catch(err) {
     return err;
 }
