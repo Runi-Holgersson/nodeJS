@@ -53,6 +53,8 @@
     "pg": "^8.8.0",
     "pg-hstore": "^2.3.4",
     "postgresql": "^0.0.1",
-    "sequelize": "^6.28.0"
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.28.0",
+    "sequelize-typescript": "^2.1.5"
   }
 }

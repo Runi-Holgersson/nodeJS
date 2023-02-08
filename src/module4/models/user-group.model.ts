@@ -1,34 +1,29 @@
-import { Model, Sequelize, DataTypes } from 'sequelize';
-import GroupModel from "./group.model";
-import UserModel from "./user.model";
-
-export default class UserGroupModel extends Model {
-    public groupId?: number;
-    public userId?: number
-}
-
-export const UserGroupMap = (sequelize: Sequelize) => {
-    UserGroupModel.init(
-        {
-            groupId: {
-                type: DataTypes.INTEGER,
-                references: {
-                    model: GroupModel,
-                    key: 'id'
-                }
-            },
-            userId: {
-                type: DataTypes.INTEGER,
-                references: {
-                    model: UserModel,
-                    key: 'id'
-                }
+import { Model, DataTypes } from 'sequelize';
+import sequelize from './db';
+import Group from "./group.model";
+import User from "./user.model";
+class UserGroup extends Model {}
+UserGroup.init(
+    {
+        GroupId: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: Group,
+                key: 'id'
             }
         },
-         {
+        UserId: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: User,
+                key: 'id'
+            }
+        }
+    },
+    {
         sequelize,
         tableName: 'user_group',
         timestamps: false
     });
-    UserGroupModel.sync();
-}
+UserGroup.sync()
+export default UserGroup;
