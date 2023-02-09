@@ -3,7 +3,7 @@ import { validateUser  } from "../services/validation.service";
 import User from '../models/user.model';
 import Group from "../models/group.model";
 import { Request, Response } from "express";
-import {addUsersToGroup} from "../data-access/methods";
+import { addUsersToGroup } from "../data-access/methods";
 export const usersRouter = express.Router();
 
 usersRouter.get('/users', async (req: Request, res: Response) => {

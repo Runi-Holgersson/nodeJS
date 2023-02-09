@@ -1,12 +1,7 @@
-import {Sequelize} from "sequelize";
 import User from "../models/user.model";
 import Group from "../models/group.model";
 import UserGroup from "../models/user-group.model";
 import sequelize from "../models/db";
-
-const t = async (sequelize:Sequelize) => {
-    await sequelize.transaction();
-}
 
 export async function addUsersToGroup(groupId: number, userIds: any[]) {
 try {
