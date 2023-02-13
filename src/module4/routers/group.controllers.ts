@@ -3,10 +3,15 @@ import { Request, Response } from "express";
 import Group from "../models/group.model";
 import User from "../models/user.model";
 import UserGroup from "../models/user-group.model";
+import {logger} from "../utils/logger";
 
 export const groupsRouter = express.Router();
 groupsRouter.get('/groups', async (req: Request, res: Response) => {
     try {
+        logger.http({
+            level: 'http',
+            message: 'called method',
+        })
         const result = await Group.findAll({
         });
         res.status(200).json({ groups: result });

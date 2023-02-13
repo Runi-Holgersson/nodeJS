@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import bodyParser from "body-parser";
 import {usersRouter} from './routers/user.controllers';
 import {groupsRouter} from "./routers/group.controllers";
+import {logger} from "./utils/logger";
 
 const server = express();
 const port = process.env.PORT || 8000;
@@ -19,6 +20,9 @@ server.get('/', (req, res) => {
 });
 
 server.listen(port, () => {
-    return console.log(`Express is listening at http://localhost:${port}`);
+    logger.log({
+        level: 'info',
+        message: `Express is listening at http://localhost:${port}`,
+    })
 });
 
