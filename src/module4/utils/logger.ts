@@ -1,25 +1,32 @@
 import winston, {format, transports} from "winston";
 
 export const logger = winston.createLogger({
-        level: 'http',
-        format: winston.format.json(),
+        format: format.json(),
         defaultMeta: { service: 'user-service' },
         transports: [
-            new winston.transports.File({ filename: 'error.log', level: 'error' }),
-            new winston.transports.Console({
+            new transports.File({ filename: './src/module4/logs/error.log', level: 'error' }),
+            new transports.Console({
                 format: format.combine(
                     format.timestamp(),
                     format.colorize(),
                     format.simple()
-                )
+                ),
+                level: "info"
             }),
-            new winston.transports.Http({ host: 'localhost', port:8000 }),
         ],
         exceptionHandlers: [
-            new winston.transports.File({ filename: 'exceptions.log' })
+            new transports.File({
+                filename: './src/module4/logs/exceptions.log',
+                level: "error",
+                handleExceptions: true
+            })
+        ],
+        rejectionHandlers: [
+            new transports.File({
+                filename: './src/module4/logs/rejections.log',
+                level: "error",
+                handleRejections: true
+            })
         ]
     }
 )
-logger.rejections.handle(
-    new transports.File({ filename: 'rejections.log' })
-);

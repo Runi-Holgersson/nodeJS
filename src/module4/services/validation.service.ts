@@ -1,5 +1,6 @@
 import Joi from "joi";
 import {NextFunction, Request, Response} from "express";
+import {logger} from "../utils/logger";
 
 export const schema = Joi.object(
     {
@@ -14,8 +15,10 @@ export const schema = Joi.object(
 export async function validateUser(req: Request, res: Response, next: NextFunction) {
     const result = await schema.validate(req.body);
         if (!result.error){
+            logger.log('info', 'validation passed', {service: "validation-service"});
             next();
         } else {
+            logger.log('error', 'validation failed', {service: "validation-service"});
             res.status(400).json({ message: result.error.message });
         }
 }
