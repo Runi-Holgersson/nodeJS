@@ -5,9 +5,14 @@ import Group from "../models/group.model";
 import { Request, Response } from "express";
 import { addUsersToGroup } from "../data-access/methods";
 import {logger} from "../utils/logger";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcryptjs";
+import {checkToken} from "../services/check-token.service";
+import {loginUser} from "../services/login.service";
 export const usersRouter = express.Router();
+let clientToken;
 
-usersRouter.get('/users', async (req: Request, res: Response) => {
+usersRouter.get('/users', checkToken, async (req: Request, res: Response) => {
     try {
         logger.info({
             message: `called method ${req.method} url ${req.url}`,
@@ -100,3 +105,5 @@ usersRouter.post('/usersgroup/:groupid', async (req: Request, res: Response) => 
         res.status(500).json({ message: err });
     }
 })
+
+usersRouter.post('/login', loginUser);

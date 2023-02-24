@@ -13,3 +13,4 @@
 {"level":"error","message":"Internal Server Error: Error: exception","service":"user-service"}
 {"level":"error","message":"Internal Server Error: Error: exception","service":"user-service"}
 {"level":"error","message":"Internal Server Error: Error: exception","service":"user-service"}
+{"level":"error","message":"Internal Server Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client","service":"user-service"}

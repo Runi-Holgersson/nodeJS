@@ -3,9 +3,10 @@ import sequelize from './db';
 class User extends Model {
     public id?: string;
     public login?: string;
-    public password?: string;
+    public password?: string | undefined;
     public age?: number;
-    public isdeleted?: boolean
+    public isdeleted?: boolean;
+    public token?: string;
 }
 User.init({
     id: {
