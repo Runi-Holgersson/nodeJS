@@ -18,7 +18,6 @@ export async function loginUser( req: Request, res: Response) {
             where: { login: login },
         } );
         if (user && user.password) {
-            //why this bcrypt shit doesn't work
             const isUserPass = await bcrypt.compare(password, user.password);
             console.log(isUserPass);
             if ( password.toString() === user.password.toString() ) {

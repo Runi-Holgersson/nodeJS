@@ -4,13 +4,10 @@ import User from '../models/user.model';
 import Group from "../models/group.model";
 import { Request, Response } from "express";
 import { addUsersToGroup } from "../data-access/methods";
-import {logger} from "../utils/logger";
-import jwt from "jsonwebtoken";
-import bcrypt from "bcryptjs";
-import {checkToken} from "../services/check-token.service";
-import {loginUser} from "../services/login.service";
+import { logger } from "../utils/logger";
+import { checkToken } from "../services/check-token.service";
+import { loginUser } from "../services/login.service";
 export const usersRouter = express.Router();
-let clientToken;
 
 usersRouter.get('/users', checkToken, async (req: Request, res: Response) => {
     try {
@@ -24,7 +21,7 @@ usersRouter.get('/users', checkToken, async (req: Request, res: Response) => {
         res.status(500).json({ message: err });
     }
 });
-usersRouter.get('/users/:id', async (req: Request, res: Response) => {
+usersRouter.get('/users/:id', checkToken, async (req: Request, res: Response) => {
     try {
         logger.info({
             message: `called method ${req.method} url ${req.url}`,
@@ -52,7 +49,7 @@ usersRouter.post('/users', validateUser, async (req: Request, res: Response) => 
         res.status(500).json({ message: err });
     }
 });
-usersRouter.put('/users/:id', validateUser, async (req: Request, res:Response) => {
+usersRouter.put('/users/:id', checkToken, validateUser, async (req: Request, res:Response) => {
     try {
         logger.info({
             message: `called method ${req.method} url ${req.url}`,
@@ -72,7 +69,7 @@ usersRouter.put('/users/:id', validateUser, async (req: Request, res:Response) =
         res.status(500).json({ message: err });
     }
 })
-usersRouter.delete('/users/:id', async (req: Request, res:Response) =>{
+usersRouter.delete('/users/:id', checkToken, async (req: Request, res:Response) =>{
     try {
         logger.info({
             message: `called method ${req.method} url ${req.url}`,
@@ -91,7 +88,7 @@ usersRouter.delete('/users/:id', async (req: Request, res:Response) =>{
     }
 })
 
-usersRouter.post('/usersgroup/:groupid', async (req: Request, res: Response) => {
+usersRouter.post('/usersgroup/:groupid', checkToken, async (req: Request, res: Response) => {
     try {
         logger.info({
             message: `called method ${req.method} url ${req.url}`,

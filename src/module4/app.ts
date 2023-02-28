@@ -5,7 +5,12 @@ import {usersRouter} from './routers/user.controllers';
 import {groupsRouter} from "./routers/group.controllers";
 import {logger} from "./utils/logger";
 import winston, {exceptions, format, rejections, transports} from "winston";
+import cors from "cors";
 
+const corsOptions = {
+    origin: 'http://example.com',
+    optionsSuccessStatus: 200
+}
 
 const server = express();
 const port = process.env.PORT || 8000;
@@ -13,6 +18,7 @@ server.use(helmet());
 server.use(bodyParser.json());
 server.use(usersRouter);
 server.use(groupsRouter);
+server.use(cors(corsOptions));
 
 server.get('/', (req, res) => {
     logger.http({
