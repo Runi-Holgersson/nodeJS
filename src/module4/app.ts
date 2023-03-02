@@ -6,6 +6,7 @@ import {groupsRouter} from "./routers/group.controllers";
 import {logger} from "./utils/logger";
 import winston, {exceptions, format, rejections, transports} from "winston";
 import cors from "cors";
+import {checkToken} from "./services/check-token.service";
 
 const corsOptions = {
     origin: 'http://example.com',
@@ -16,6 +17,7 @@ const server = express();
 const port = process.env.PORT || 8000;
 server.use(helmet());
 server.use(bodyParser.json());
+server.use(checkToken)
 server.use(usersRouter);
 server.use(groupsRouter);
 server.use(cors(corsOptions));

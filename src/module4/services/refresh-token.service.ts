@@ -5,9 +5,7 @@ import {REFRESH_TOKEN_EXPIRE_TIMEOUT, REFRESH_TOKEN_KEY, TOKEN_EXPIRE_TIMEOUT, T
 
 export async function refreshToken( req: Request, res: Response) {
     try {
-        logger.info({
-            message: `called method ${req.method} url ${req.url}`,
-        })
+        logger.log('info', 'refresh-token service been called', {service: "refresh-token-service"});
         const postData = req.body;
         if (!postData.user) {
             res.status(400).send("All input is required");

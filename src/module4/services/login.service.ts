@@ -7,9 +7,7 @@ import {REFRESH_TOKEN_EXPIRE_TIMEOUT, REFRESH_TOKEN_KEY, TOKEN_EXPIRE_TIMEOUT, T
 
 export async function loginUser( req: Request, res: Response) {
     try {
-        logger.info({
-            message: `called method ${req.method} url ${req.url}`,
-        })
+        logger.log('info', 'login-user service been called', {service: "login-user-service"});
         const { login, password } = req.body;
         if (!(login && password)) {
             res.status(400).send("All input is required");
@@ -18,8 +16,6 @@ export async function loginUser( req: Request, res: Response) {
             where: { login: login },
         } );
         if (user && user.password) {
-            /* const isUserPass = await bcrypt.compare(password, user.password);
-            console.log(isUserPass); */
             if ( password.toString() === user.password.toString() ) {
                 const token = jwt.sign({ user }, TOKEN_KEY, { expiresIn: TOKEN_EXPIRE_TIMEOUT });
                 const refreshToken = jwt.sign({ user }, REFRESH_TOKEN_KEY, { expiresIn: REFRESH_TOKEN_EXPIRE_TIMEOUT });
