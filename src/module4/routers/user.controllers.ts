@@ -7,6 +7,7 @@ import { addUsersToGroup } from "../data-access/methods";
 import { logger } from "../utils/logger";
 import { checkToken } from "../services/check-token.service";
 import { loginUser } from "../services/login.service";
+import {refreshToken} from "../services/refresh-token.service";
 export const usersRouter = express.Router();
 
 usersRouter.get('/users', checkToken, async (req: Request, res: Response) => {
@@ -104,3 +105,4 @@ usersRouter.post('/usersgroup/:groupid', checkToken, async (req: Request, res: R
 })
 
 usersRouter.post('/login', loginUser);
+usersRouter.post('/token', refreshToken);
