@@ -16,13 +16,9 @@ export async function loginUser( req: Request, res: Response) {
             where: { login: login },
         } );
         if (user && user.password) {
-            console.log("get into 1 if")
             if ( password.toString() === user.password.toString() ) {
-                console.log("get into 2 if")
                 const token = jwt.sign({ user }, TOKEN_KEY, { expiresIn: TOKEN_EXPIRE_TIMEOUT });
-                console.log("get into 3 if")
                 const refreshToken = jwt.sign({ user }, REFRESH_TOKEN_KEY, { expiresIn: REFRESH_TOKEN_EXPIRE_TIMEOUT });
-                console.log(token, refreshToken);
                 res.status(201).json({token, refreshToken});
             } else {
                 res.status(403).json("message: Forbidden Error");

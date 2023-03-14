@@ -43,7 +43,7 @@ describe('loginUser service', () => {
         } as Request, {} as Response);
         expect(findUser).toBeCalled();
     })
-    it('should call findUser in User model if request has all required fields', async () => {
+    it('should call jwt sign twice if user logins successfully', async () => {
         const sign = jest.spyOn(jwt, "sign");
         await sign.mockImplementation(() => "mockToken");
         const mockResponse = {
@@ -57,8 +57,6 @@ describe('loginUser service', () => {
         } as User);
         await findUser.getMockImplementation();
         await loginUser(mockRequest as Request, mockResponse as unknown as Response);
-        //expect(res.status).toBe(200);
         expect(sign).toBeCalledTimes(2);
-        //await expect(loginUser(req as Request, res as Response)).resolves;
     })
 })
