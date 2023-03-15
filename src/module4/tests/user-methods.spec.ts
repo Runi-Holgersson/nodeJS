@@ -34,5 +34,8 @@ describe("getUsers method", () => {
         await expect(mockResponse.status).toBeCalledWith(500)
     })
 })
+afterAll( done => {
+    done();
+})
 
 

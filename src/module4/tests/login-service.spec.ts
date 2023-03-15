@@ -31,9 +31,6 @@ afterAll(done => {
 })
 
 describe('loginUser service', () => {
-    afterAll(done => {
-        done();
-    })
     test('should return error if request has not all required fields', async () => {
       await expect(loginUser({body: {login: "mockUserLogin"}} as Request, {} as Response)).rejects.toThrowError();
     })
@@ -64,4 +61,7 @@ describe('loginUser service', () => {
         expect(sign).toBeCalledTimes(2);
         expect(mockResponse.status).toHaveBeenCalledWith(201);
     })
+})
+afterAll( done => {
+    done();
 })

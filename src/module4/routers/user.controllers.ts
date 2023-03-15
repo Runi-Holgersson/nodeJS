@@ -6,93 +6,23 @@ import { Request, Response } from "express";
 import { addUsersToGroup } from "../data-access/user-group.methods";
 import { logger } from "../utils/logger";
 import { loginUser } from "../services/login.service";
-import {refreshToken} from "../services/refresh-token.service";
-import { getUsers } from "../data-access/user.methods";
+import { refreshToken } from "../services/refresh-token.service";
+import {createUser, deleteUser, getUser, getUsers, updateUser} from "../data-access/user.methods";
 
 export const usersRouter = express.Router();
 
 usersRouter.get('/users', getUsers);
-usersRouter.get('/users/:id', async (req: Request, res: Response) => {
-    try {
-        logger.info({
-            message: `called method ${req.method} url ${req.url}`,
-        })
-        const id = Number(req.params.id);
-        const result = await User.findByPk(id);
-        res.status(200).json({ user: result });
-    } catch(err) {
-        logger.error(`Internal Server Error: ${err}`);
-        res.status(500).json({ message: err });
-    }
-});
-usersRouter.post('/users', validateUser, async (req: Request, res: Response) => {
-    try {
-        logger.info({
-            message: `called method ${req.method} url ${req.url}`,
-        })
-        let newUser = req.body;
-        const result = await User.create(newUser);
-        newUser = result.dataValues as User;
-        logger.info({ message: `created user ${newUser}`});
-        res.status(201).json({ user: newUser });
-    } catch(err) {
-        logger.error(`Internal Server Error: ${err}`);
-        res.status(500).json({ message: err });
-    }
-});
-usersRouter.put('/users/:id', validateUser, async (req: Request, res:Response) => {
-    try {
-        logger.info({
-            message: `called method ${req.method} url ${req.url}`,
-        })
-        let newUser = req.body;
-        const id = Number(req.params.id);
-        const user = await Group.findByPk(id);
-        if(!user){
-            res.status(404).json({ message: `No users with id ${id} exist`});
-        } else {
-            const result = await user.update(newUser);
-            newUser = result.dataValues as Group;
-            res.status(201).json({ group: newUser });
-        }
-    } catch (err) {
-        logger.error(`Internal Server Error: ${err}`)
-        res.status(500).json({ message: err });
-    }
-})
-usersRouter.delete('/users/:id', async (req: Request, res:Response) =>{
-    try {
-        logger.info({
-            message: `called method ${req.method} url ${req.url}`,
-        })
-        const id = Number(req.params.id);
-        const user = await User.findByPk(id);
-        if (!user) {
-            res.status(404).json({message: `No groups with id ${id} exist`});
-        } else {
-            await user.destroy();
-            res.status(200).json({group: `Group with ${id} has been deleted`});
-        }
-    } catch (err) {
-        logger.error(`Internal Server Error: ${err}`);
-        res.status(500).json({ message: err });
-    }
-})
 
-usersRouter.post('/usersgroup/:groupid', async (req: Request, res: Response) => {
-    try {
-        logger.info({
-            message: `called method ${req.method} url ${req.url}`,
-        })
-        const userIds: any[] = req.body;
-        const groupId = Number(req.params.groupid);
-        const result = await addUsersToGroup(groupId, userIds);
-        res.status(201).json({ group: result });
-    } catch (err) {
-        logger.error(`Internal Server Error: ${err}`);
-        res.status(500).json({ message: err });
-    }
-})
+usersRouter.get('/users/:id', getUser);
+
+usersRouter.post('/users', validateUser, createUser);
+
+usersRouter.put('/users/:id', validateUser, updateUser);
+
+usersRouter.delete('/users/:id', deleteUser);
+
+usersRouter.post('/usersgroup/:groupid', addUsersToGroup);
 
 usersRouter.post('/login', loginUser);
+
 usersRouter.post('/token', refreshToken);
