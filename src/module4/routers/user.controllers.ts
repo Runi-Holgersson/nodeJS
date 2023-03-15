@@ -3,24 +3,15 @@ import { validateUser  } from "../services/validation.service";
 import User from '../models/user.model';
 import Group from "../models/group.model";
 import { Request, Response } from "express";
-import { addUsersToGroup } from "../data-access/methods";
+import { addUsersToGroup } from "../data-access/user-group.methods";
 import { logger } from "../utils/logger";
 import { loginUser } from "../services/login.service";
 import {refreshToken} from "../services/refresh-token.service";
+import { getUsers } from "../data-access/user.methods";
+
 export const usersRouter = express.Router();
 
-usersRouter.get('/users', async (req: Request, res: Response) => {
-    try {
-        logger.info({
-            message: `called method ${req.method} url ${req.url}`,
-        })
-        const result = await User.findAll();
-        res.status(200).json({ users: result });
-    } catch(err) {
-        logger.error(`Internal Server Error: ${err}`);
-        res.status(500).json({ message: err });
-    }
-});
+usersRouter.get('/users', getUsers);
 usersRouter.get('/users/:id', async (req: Request, res: Response) => {
     try {
         logger.info({

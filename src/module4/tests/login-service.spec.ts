@@ -3,7 +3,11 @@ import {loginUser} from "../services/login.service";
 import {Request, Response} from "express";
 import User from "../models/user.model";
 import jwt from "jsonwebtoken";
-
+import {logger} from "../utils/logger";
+beforeEach(() => {
+    jest.spyOn(logger, "info").mockReset();
+    jest.spyOn(logger, "error").mockReset();
+})
 const mockValidRequest = {
     body: {
         login: "mockUserLogin",
@@ -51,12 +55,13 @@ describe('loginUser service', () => {
             status: jest.fn().mockReturnThis(),
         };
         const mockRequest = {body: {login: "mockUserLogin", password: "123"}};
-        const findUser = jest.spyOn(User, "findOne").mockResolvedValue({
+        const findUser =await jest.spyOn(User, "findOne").mockResolvedValue({
             login: "mockUserLogin",
             password: "123"
         } as User);
         await findUser.getMockImplementation();
         await loginUser(mockRequest as Request, mockResponse as unknown as Response);
         expect(sign).toBeCalledTimes(2);
+        expect(mockResponse.status).toHaveBeenCalledWith(201);
     })
 })
