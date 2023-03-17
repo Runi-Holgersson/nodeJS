@@ -74,10 +74,10 @@ export async function deleteUser( req: Request, res: Response ){
         const id = Number(req.params.id);
         const user = await User.findByPk(id);
         if (!user) {
-            res.status(404).json({message: `No groups with id ${id} exist`});
+            res.status(404).json({message: `No users with id ${id} exist`});
         } else {
             await user.destroy();
-            res.status(200).json({group: `Group with ${id} has been deleted`});
+            res.status(200).json({user: `User with id ${id} has been deleted`});
         }
     } catch (err) {
         logger.error(`Internal Server Error: ${err}`);
