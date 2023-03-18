@@ -1,7 +1,8 @@
 import {NextFunction, Request, Response} from "express";
 import jwt from "jsonwebtoken";
-import {TOKEN_KEY} from "../configs";
 import {logger} from "../utils/logger";
+import dotenv from 'dotenv';
+dotenv.config();
 
 export async function checkToken(req: Request, res: Response, next: NextFunction) {
     try {
@@ -11,7 +12,8 @@ export async function checkToken(req: Request, res: Response, next: NextFunction
             logger.log('info', 'check-token service been called', {service: "check-token-service"});
             let token = req.headers['x-access-token'];
             if (token && typeof token === "string") {
-                jwt.verify(token, TOKEN_KEY, (err, decoded) => {
+                // @ts-ignore
+                jwt.verify(token, process.env["TOKEN_KEY"], (err, decoded) => {
                     if (err) {
                         res.status(403).json(err);
                     } else {

@@ -1,7 +1,6 @@
 import jwt from "jsonwebtoken";
 import {Request, Response} from "express";
 import {logger} from "../utils/logger";
-import {REFRESH_TOKEN_EXPIRE_TIMEOUT, REFRESH_TOKEN_KEY, TOKEN_EXPIRE_TIMEOUT, TOKEN_KEY} from "../configs";
 
 export async function refreshToken( req: Request, res: Response) {
     try {
@@ -12,8 +11,10 @@ export async function refreshToken( req: Request, res: Response) {
         }
         if (postData.refreshToken) {
             const user = postData.user;
-            const token = jwt.sign({ user }, TOKEN_KEY, { expiresIn: TOKEN_EXPIRE_TIMEOUT });
-            const refreshToken = jwt.sign({ user }, REFRESH_TOKEN_KEY, { expiresIn: REFRESH_TOKEN_EXPIRE_TIMEOUT });
+            // @ts-ignore
+            const token = jwt.sign({ user }, process.env["TOKEN_KEY"], { expiresIn: process.env["TOKEN_EXPIRE_TIMEOUT"] });
+            // @ts-ignore
+            const refreshToken = jwt.sign({ user }, process.env["REFRESH_TOKEN_KEY"], { expiresIn: process.env["REFRESH_TOKEN_EXPIRE_TIMEOUT"] });
             res.status(201).json({token, refreshToken});
         } else {
             res.status(403).json("message: Forbidden Error");
