@@ -158,3 +158,124 @@
 {"level":"error","message":"Internal Server Error: null","service":"user-service"}
 {"level":"error","message":"Internal Server Error: null","service":"user-service"}
 {"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: [object Object],[object Object]","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: function Error() { [native code] }","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'json')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: [object Object],[object Object]","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: function Error() { [native code] }","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: SequelizeDatabaseError: столбец \"nan\" не существует","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: [object Object],[object Object]","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: function Error() { [native code] }","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: SequelizeDatabaseError: столбец \"nan\" не существует","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: [object Object],[object Object]","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: function Error() { [native code] }","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: [object Object],[object Object],[object Object]","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: [object Object],[object Object]","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: function Error() { [native code] }","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: [object Object],[object Object],[object Object]","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: function Error() { [native code] }","service":"user-service"}
+{"level":"error","message":"Internal Server Error: [object Object],[object Object]","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: function Error() { [native code] }","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: [object Object],[object Object],[object Object]","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: function Error() { [native code] }","service":"user-service"}
+{"level":"error","message":"Internal Server Error: [object Object],[object Object]","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: function Error() { [native code] }","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: [object Object],[object Object],[object Object]","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: function Error() { [native code] }","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: [object Object],[object Object]","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: function Error() { [native code] }","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: [object Object],[object Object],[object Object]","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: function Error() { [native code] }","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: [object Object],[object Object]","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: function Error() { [native code] }","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: [object Object],[object Object],[object Object]","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: function Error() { [native code] }","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: [object Object],[object Object]","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: function Error() { [native code] }","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: [object Object],[object Object],[object Object]","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: function Error() { [native code] }","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: [object Object],[object Object]","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: function Error() { [native code] }","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: [object Object],[object Object]","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: function Error() { [native code] }","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: [object Object],[object Object],[object Object]","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: function Error() { [native code] }","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: [object Object],[object Object],[object Object]","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: function Error() { [native code] }","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: [object Object],[object Object]","service":"user-service"}
+{"level":"error","message":"Internal Server Error: TypeError: Cannot read properties of undefined (reading 'id')","service":"user-service"}
+{"level":"error","message":"Internal Server Error: function Error() { [native code] }","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}
+{"level":"error","message":"Internal Server Error: null","service":"user-service"}

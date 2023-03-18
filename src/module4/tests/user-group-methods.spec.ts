@@ -6,7 +6,7 @@ import {userMockRequestWithParams} from "./mocks/user.mock.request";
 import sequelize from "../models/db";
 import {Request, Response} from "express";
 import {mockResponse} from "./mocks/mock.response";
-import {groupMockRequestWithParams} from "./mocks/group.mock.request";
+import {userGroupMockRequestWithParams} from "./mocks/group.mock.request";
 import UserGroup from "../models/user-group.model";
 
 describe("updateUser method", () => {
@@ -22,7 +22,7 @@ describe("updateUser method", () => {
             name: "mockGroupLogin",
             permissions: "READ"
         } as unknown as Group);
-        await addUsersToGroup(groupMockRequestWithParams as unknown as Request, mockResponse as unknown as Response);
+        await addUsersToGroup(userGroupMockRequestWithParams as unknown as Request, mockResponse as unknown as Response);
         await expect(mockResponse.status).toBeCalledWith(201);
         //await expect(mockResponse.json).toBeCalledWith({"user": {"id": "123", "login": "mockUserNewLogin",
                // "password": "mockNewPassword"}});
@@ -34,7 +34,7 @@ describe("updateUser method", () => {
         jest.spyOn(User, "belongsToMany").mock;
         jest.spyOn(Group, "belongsToMany").mock;
         jest.spyOn(UserGroup, "bulkCreate").mock;
-        await addUsersToGroup(groupMockRequestWithParams as unknown as Request, mockResponse as unknown as Response);
+        await addUsersToGroup(userGroupMockRequestWithParams as unknown as Request, mockResponse as unknown as Response);
         await expect(mockResponse.status).toBeCalledWith(500)
     })
 })
